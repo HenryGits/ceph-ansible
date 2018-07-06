@@ -78,6 +78,8 @@ dummy:
 #ceph_rbdmirror_firewall_zone: public
 #ceph_iscsi_firewall_zone: public
 
+# Generate local ceph.conf in fetch directory
+#ceph_conf_local: false
 
 ############
 # PACKAGES #
@@ -295,6 +297,9 @@ dummy:
 #generate_fsid: true
 
 #ceph_conf_key_directory: /etc/ceph
+
+# Permissions for keyring files in /etc/ceph
+#ceph_keyring_permissions: '0600'
 
 #cephx: true
 
@@ -554,6 +559,7 @@ dummy:
 #  type: 1
 #  erasure_profile: ""
 #  expected_num_objects: ""
+#  application: "rbd"
 #openstack_cinder_pool:
 #  name: "volumes"
 #  pg_num: "{{ hostvars[groups[mon_group_name][0]]['osd_pool_default_pg_num'] }}"
@@ -562,6 +568,7 @@ dummy:
 #  type: 1
 #  erasure_profile: ""
 #  expected_num_objects: ""
+#  application: "rbd"
 #openstack_nova_pool:
 #  name: "vms"
 #  pg_num: "{{ hostvars[groups[mon_group_name][0]]['osd_pool_default_pg_num'] }}"
@@ -570,6 +577,7 @@ dummy:
 #  type: 1
 #  erasure_profile: ""
 #  expected_num_objects: ""
+#  application: "rbd"
 #openstack_cinder_backup_pool:
 #  name: "backups"
 #  pg_num: "{{ hostvars[groups[mon_group_name][0]]['osd_pool_default_pg_num'] }}"
@@ -578,6 +586,7 @@ dummy:
 #  type: 1
 #  erasure_profile: ""
 #  expected_num_objects: ""
+#  application: "rbd"
 #openstack_gnocchi_pool:
 #  name: "metrics"
 #  pg_num: "{{ hostvars[groups[mon_group_name][0]]['osd_pool_default_pg_num'] }}"
@@ -586,6 +595,7 @@ dummy:
 #  type: 1
 #  erasure_profile: ""
 #  expected_num_objects: ""
+#  application: "rbd"
 
 #openstack_pools:
 #  - "{{ openstack_glance_pool }}"
